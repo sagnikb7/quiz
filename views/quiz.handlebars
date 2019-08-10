@@ -1,0 +1,56 @@
+{{> _navbar }}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col"><h5>Quiz name: <b>{{data.name}}</b> </h5>
+</div>
+        <div class="col"><a href="/quiz_public/scoreboard/{{data.quizCode}}" class="btn btn-secondary btn-sm">Scoreboard</a></div>
+    </div>
+    
+    <form action="/quiz_public/submit" method="POST">
+
+        <div class="row my-3 mx-3">
+            Enter Name: &nbsp; <input
+                style="border-radius:6px; padding:2px 10px;border:none; background:#eee; color:black" type="text"
+                name="playerName" required>
+        </div>
+        {{#each data.question}}
+        <div class="row">
+            <div class="my-3">
+
+                <div class="col-12 my-2">
+                    <span class="badge badge-info">{{questionNumber}}</span>
+                    <span>{{question}}</span>
+                    <span class="badge badge-pill badge-success">Marks: {{correctScore}}</span>
+                </div>
+
+                <div class="col-12">
+                    {{#each options}}
+                    <div class="custom-control custom-radio">
+                        <input type="radio" value="{{label}}" id="{{group}}" name="{{group}}" required>
+                        <label for="{{group}}">{{text}}</label>
+                    </div>
+                    {{/each}}
+                </div>
+
+            </div>
+        </div>
+        {{/each}}
+
+
+
+
+
+
+        <input type="hidden" name="quizCode" value="{{data.quizCode}}">
+        <input class="btn btn-primary" type="submit" value="Submit">
+
+
+
+
+
+    </form>
+
+
+
+
+</div>

@@ -1,0 +1,37 @@
+{{> _navbar }}
+<div class="container mt-4">
+    <div class="row">
+         <div class="col"> <h5>Scoreboard</h5></div>
+          <div class="col"><a class="btn btn-sm btn-secondary" href="/quiz_public/report/{{data.quizCode}}">Export CSV</a></div>
+    </div>
+ 
+   
+
+    <div class="col-9">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each data.data}}
+                <tr>
+                    <td>{{playerName}}</td>
+                    <td>{{score}}</td>
+                    <td>{{date}}</td>
+
+                </tr>
+                {{/each}}
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+</div>

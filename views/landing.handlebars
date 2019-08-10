@@ -1,0 +1,10 @@
+{{> _navbar }}
+<div class="container mt-4">
+    
+        <h5>List of Available Quiz</h5>
+        <br>
+        {{#each quiz}}
+        <a class="btn btn-dark" href="/quiz_public/start/{{quizCode}}">{{name}}</a>
+        {{/each}}
+    
+</div>
